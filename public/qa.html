@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interview QA</title>
+    <link rel="manifest" href="/manifest.json">
+  
+    <meta name="theme-color" content="#2196f3"/>
+  
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <style>
+      .questions {
+        margin-top: 4rem;
+        padding: 1rem;
+      }
+      details:not(:first-of-type) {
+        margin-top: 1rem;
+      }
+
+      details.easy summary {
+        background: palegreen;
+      }
+      details.average summary {
+        background: lightsalmon;
+      }
+      details.hard summary {
+        background: palevioletred;
+      }
+      summary {
+        border: 1px solid black;
+        border-radius: 1rem; 
+        color: black;
+        font-family: Arial;
+        font-size: 1rem; 
+        font-weight: bold; 
+        padding: 0.25rem 0.75rem 0.25rem 2.5rem;
+        position: relative;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary:after {
+        content: "+"; 
+        color: black; 
+        padding: 0; 
+        text-align: center; 
+        width: 20px;
+
+        position: absolute;
+        left: 0.75rem;
+        top: 0.25rem;
+      }
+      details[open] summary {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      details[open] summary:after {
+        content: "-";
+      }
+      details[open] .answer {
+        border: 1px solid black;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        font-family: Arial;
+        margin-top: -1px;
+        padding: 1rem;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+<body>
+  <header>
+    <a class="return" href="/">
+      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        width="459px" height="459px" viewBox="0 0 459 459" xml:space="preserve">
+        <g id="reply">
+          <path d="M178.5,140.25v-102L0,216.75l178.5,178.5V290.7c127.5,0,216.75,40.8,280.5,130.05C433.5,293.25,357,165.75,178.5,140.25z" />
+        </g>
+      </svg>     
+    </a>
+    <div>Interview QA</div><div id="category"></div>
+  </header>
+
+  <div id="questions" class="questions"></div>
+    
+  <script src="storage.js"></script>
+  <script>
+    const storage = new Storage();
+    const category = storage.getActiveCategoryData();
+    console.log({ category });
+
+    const categoryHeaderElement = document.getElementById('category');
+    categoryHeaderElement.innerText = category.name;
+
+    let html = '';
+    let listActive = false;
+    const questionsElement = document.getElementById('questions');
+    for (let qa of category.questions) {
+      html += `<details class="${qa.rank}">\n`;
+      html += `  <summary>${qa.question}</summary>\n`;
+      html += `  <div class="answer">\n`;
+      for (let line of qa.answer) {
+        if (line === 'LIST') {
+          html += `<ol>\n`;
+          listActive = true;
+        } else if (line === '/LIST') {
+          html += `</ol>\n`;
+          listActive = false;
+        } else if (line === 'UNORDERED') {
+          html += `<ul>\n`;
+          listActive = true;
+        } else if (line === '/UNORDERED') {
+          html += `</ul>\n`;
+          listActive = false;
+        } else {
+          html += `    ${ (!!listActive) ? '<li>' : '' }${ line }${ (!!listActive) ? '</li>' : '<br />' }\n`;
+        }
+      }
+      html += `  </div>\n`;
+      html += `</details>\n`;
+    }
+    console.log(html);
+    questionsElement.innerHTML = html;
+
+  </script>  
+</body>
+</html>
