@@ -144,31 +144,29 @@
     buildCategories();
 
     function buildCategories() {
-      const categories = storage.getAllCategories();
+      const { order, data: categories } = storage.getAllCategories();
       const categoriesElement = document.getElementById('categories');
 
       let html = '';
-      for (let category in categories) {
-        if (categories.hasOwnProperty(category)) {
-          const data = categories[category];
+      for (let category of order) {
+        const data = categories[category.key];
 
-          html += `<div class="category btn default effect-jelena">\n`;
-          html += `  <div class="display" onclick="selectCategory('${ category }')">\n`;
-          html += `    <div class="name">${ data.name }</div>\n`;
-          let countText = '';
-          const count = data.questions.length;
-          if (count === 0) {
-            countText = '(NO QUESTIONS)';
-          } else if (count === 1) {
-            countText = '1 QUESTION';
-          } else {
-            countText = count + ' QUESTIONS';
-          }
-
-          html += `    <div class="statistics">${ countText }</div>\n`;
-          html += `  </div>\n`;
-          html += `</div>\n`;
+        html += `<div class="category btn default effect-jelena">\n`;
+        html += `  <div class="display" onclick="selectCategory('${ category.key }')">\n`;
+        html += `    <div class="name">${ data.name }</div>\n`;
+        let countText = '';
+        const count = data.questions.length;
+        if (count === 0) {
+          countText = '(NO QUESTIONS)';
+        } else if (count === 1) {
+          countText = '1 QUESTION';
+        } else {
+          countText = count + ' QUESTIONS';
         }
+
+        html += `    <div class="statistics">${ countText }</div>\n`;
+        html += `  </div>\n`;
+        html += `</div>\n`;
       }
       
       categoriesElement.innerHTML = html;

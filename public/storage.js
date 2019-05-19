@@ -4,19 +4,46 @@ class Storage {
   }
   CATEGORYDATA() {
     let categoryData = {
-      "Angular": {
-        "name": "Front-End: Angular",
-        "questions": [
+      general: {
+        name: "Front-End: General",
+        questions: [
           {
-            "question": "What is Angular Material?",
-            "rank": "easy",
-            "answer": [
+            question: "What is SPA (Single Page Application)? Contrast SPA technology with traditional web technology?",
+            rank: "easy",
+            answer: [
+              "In the SPA technology, only a single page, which is index.HTML, is maintained although the URL keeps on changing. Unlike the traditional web technology, SPA technology is faster and easier to develop as well.",
+              "",
+              "In the conventional web technology, as soon as a client requests a webpage, the server sends the resource. However, when again the client requests for another page, the server responds again with sending the requested resource. The problem with this technology is that it requires a lot of time."
+            ]
+          }, {
+            question: "What is the process called by which TypeScript code is converted into JavaScript code?",
+            rank: "easy",
+            answer: [
+              "It is called Transpiling. Even though TypeScript is used for writing code in Angular applications, it gets internally transpiled into equivalent JavaScript."
+            ]
+          }, {
+            question: "What is REST?",
+            rank: "easy",
+            answer: [
+              "REST stands for <span class='bold'>RE</span>presentational <span class='bold'>S</span>tate <span class='bold'>T</span>ransfer. REST is an API (Application Programming Interface) style that works on the HTTP request. In this, the requested URL pinpoints the data that needs to be processed. Further ahead, an HTTP method then identifies the specific operation that needs to be performed on that requested data. Thus, the APIs which follows this approach are known as RESTful APIs."
+            ]
+          }
+        ]
+      },
+
+      angular: {
+        name: "Front-End: Angular",
+        questions: [
+          {
+            question: "What is Angular Material?",
+            rank: "easy",
+            answer: [
               "It is a UI component library. Angular Material helps in creating attractive, consistent, and fully functional web pages as well as web applications. It does so while following modern web design principles, including browser portability and graceful degradation."
             ]
           }, {
-            "question": "What is ngOnInit()? How is it defined?",
-            "rank": "easy",
-            "answer": [
+            question: "What is ngOnInit()? How is it defined?",
+            rank: "easy",
+            answer: [
               "ngOnInit () is a lifecycle hook that is called after Angular has finished initializing all data-bound properties of a directive. It is defined as:",
               "",
               "Interface OnInit {",
@@ -24,35 +51,15 @@ class Storage {
               "}"
             ]
           }, {
-            "question": "What is SPA (Single Page Application)? Contrast SPA technology with traditional web technology?",
-            "rank": "easy",
-            "answer": [
-              "In the SPA technology, only a single page, which is index.HTML, is maintained although the URL keeps on changing. Unlike the traditional web technology, SPA technology is faster and easier to develop as well.",
-              "",
-              "In the conventional web technology, as soon as a client requests a webpage, the server sends the resource. However, when again the client requests for another page, the server responds again with sending the requested resource. The problem with this technology is that it requires a lot of time."
-            ]
-          }, {
-            "question": "What is the process called by which TypeScript code is converted into JavaScript code?",
-            "rank": "easy",
-            "answer": [
-              "It is called Transpiling. Even though TypeScript is used for writing code in Angular applications, it gets internally transpiled into equivalent JavaScript."
-            ]
-          }, {
-            "question": "Why prioritize TypeScript over JavaScript in Angular?",
-            "rank": "easy",
-            "answer": [
+            question: "Why prioritize TypeScript over JavaScript in Angular?",
+            rank: "easy",
+            answer: [
               "TypeScript is developed by Microsoft and it is a superset of JavaScript. The issue with JS is that it isn’t a true OOP language. As the JS code doesn’t follow the Prototype Pattern, the bigger the size of the code the messier it gets. Hence, it leads to difficulties in maintainability as well as reusability. To offset this, TypeScript follows a strict OOP approach."
             ]
           }, {
-            "question": "What is REST?",
-            "rank": "easy",
-            "answer": [
-              "REST stands for <span class='bold'>RE</span>presentational <span class='bold'>S</span>tate <span class='bold'>T</span>ransfer. REST is an API (Application Programming Interface) style that works on the HTTP request. In this, the requested URL pinpoints the data that needs to be processed. Further ahead, an HTTP method then identifies the specific operation that needs to be performed on that requested data. Thus, the APIs which follows this approach are known as RESTful APIs."
-            ]
-          }, {
-            "question": "Define the ng-content Directive?",
-            "rank": "average",
-            "answer": [
+            question: "Define the ng-content Directive?",
+            rank: "average",
+            answer: [
               "Conventional HTML elements have some content between the tags.",
               "",
               "Consider an example where there is custom text between angular tags.",
@@ -60,15 +67,15 @@ class Storage {
               "However, doing so won’t work the way it worked for HTML elements. In order to make it work just like the HTML example mentioned above, we need to use the ng-content Directive."
             ]
           }, {
-            "question": "What is AOT (Ahead-Of-Time) Compilation?",
-            "rank": "average",
-            "answer": [
+            question: "What is AOT (Ahead-Of-Time) Compilation?",
+            rank: "average",
+            answer: [
               "Each Angular app gets compiled internally. The Angular compiler takes in the JS code, compiles it and then produces some JS code. This happens only once per occasion per user. It is known as AOT (Ahead-Of-Time) compilation."
             ]
           }, {
-            "question": "Differentiate between Angular and AngularJS.",
-            "rank": "average",
-            "answer": [
+            question: "Differentiate between Angular and AngularJS.",
+            rank: "average",
+            answer: [
               "UNORDERED",
               "<span class='bold'>Language</span>: JavaScript / TypeScript",
               "<span class='bold'>Expression Syntax</span>: ng-directives / (events) and [properties]",
@@ -77,9 +84,9 @@ class Storage {
               "/UNORDERED"
             ]
           }, {
-            "question": "How do Observables differ from Promises?",
-            "rank": "hard",
-            "answer": [
+            question: "How do Observables differ from Promises?",
+            rank: "hard",
+            answer: [
               "As soon as a promise is made, the execution takes place.",
               "",
               "However, this is not the case with observables because they are lazy. This means that nothing happens until a subscription is made.",
@@ -87,9 +94,9 @@ class Storage {
               "While promises handle a single event, observable is a stream that allows passing of more than one event. A callback is made for each event in an observable."
             ]
           }, {
-            "question": "What is Data Binding? How many ways it can be done?",
-            "rank": "hard",
-            "answer": [
+            question: "What is Data Binding? How many ways it can be done?",
+            rank: "hard",
+            answer: [
               "In order to connect application data with the DOM (Data Object Model), data binding is used. It happens between the template (HTML) and component (TypeScript). There are 3 ways to achieve data binding:",
               "",
               "LIST",
@@ -99,9 +106,9 @@ class Storage {
               "/LIST"
             ]
           }, {
-            "question": "What are the building blocks of Angular?",
-            "rank": "hard",
-            "answer": [
+            question: "What are the building blocks of Angular?",
+            rank: "hard",
+            answer: [
               "There are essentially 9 building blocks of an Angular application. These are:",
               "",
               "LIST",
@@ -121,6 +128,17 @@ class Storage {
       }
     };
     return categoryData;
+  }
+  ORDERDATA() {
+    const data = this.CATEGORYDATA();
+    let categories = [];
+    for (let category in data) {
+      if (data.hasOwnProperty(category)) {
+        categories.push({ name: data[category].name, key: category });
+      }
+    }
+    categories = categories.sort(this.sortCompareCategory.bind(this));
+    return categories;
   }
 
   sortCompareCategory(a, b) {
@@ -154,7 +172,7 @@ class Storage {
   }
 
   getAllCategories() {
-    return this.CATEGORYDATA();
+    return { order: this.ORDERDATA(), data: this.CATEGORYDATA() };
   }
   setActiveCategory(key) {
     this.setItem(this.ACTIVECATEGORY(), key);
