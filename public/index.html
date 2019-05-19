@@ -155,7 +155,7 @@
         html += `  <div class="display" onclick="selectCategory('${ category.key }')">\n`;
         html += `    <div class="name">${ data.name }</div>\n`;
         let countText = '';
-        const count = data.questions.length;
+        const count = (typeof data.questions !== 'number') ? data.questions.length : data.questions;
         if (count === 0) {
           countText = '(NO QUESTIONS)';
         } else if (count === 1) {
