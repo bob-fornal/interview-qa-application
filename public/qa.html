@@ -97,7 +97,7 @@
     const title = document.getElementById('category');
     title.innerText = categoryData.name;
 
-    const templateLocation = `/templates/${ category }.html`;
+    const templateLocation = `/templates/${ category.major }-${ category.minor }.html`;
     fetch(templateLocation)
       .then(function(response) {
           return response.text()

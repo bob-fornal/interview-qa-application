@@ -4,23 +4,37 @@ class Storage {
   }
   CATEGORYDATA() {
     let categoryData = {
-      angular: { name: "Front-End: Angular", questions: 9 },
-      css: { name: "Front-End: CSS", questions: 8 },
-      general: { name: "Front-End: General", questions: 6 },
-      javascript: { name: "Front-End: JavaScript", questions: 5 }
+      frontend: {
+        name: "Front-End",
+        minor: {
+          angular: { name: "Angular", questions: 9 },
+          css: { name: "CSS", questions: 8 },
+          javascript: { name: "JavaScript", questions: 5 }    
+        }
+      },
+      programming: {
+        name: "Programming",
+        minor: {
+          general: { name: "General", questions: 6 }
+        }
+      }
     };
     return categoryData;
   }
   ORDERDATA() {
-    const data = this.CATEGORYDATA();
-    let categories = [];
-    for (let category in data) {
-      if (data.hasOwnProperty(category)) {
-        categories.push({ name: data[category].name, key: category });
+    const outerData = this.CATEGORYDATA();
+    const data = {};
+    for (let major in outerData) {
+      if (outerData.hasOwnProperty(major)) {
+        let categories = [];
+        const innerData = outerData[major].minor;
+        for (let minor in innerData) {
+          categories.push({ name: innerData[minor].name, key: minor });
+        }
+        data[major] = categories.sort(this.sortCompareCategory.bind(this));
       }
     }
-    categories = categories.sort(this.sortCompareCategory.bind(this));
-    return categories;
+    return data;
   }
 
   sortCompareCategory(a, b) {
@@ -56,8 +70,8 @@ class Storage {
   getAllCategories() {
     return { order: this.ORDERDATA(), data: this.CATEGORYDATA() };
   }
-  setActiveCategory(key) {
-    this.setItem(this.ACTIVECATEGORY(), key);
+  setActiveCategory(major, minor) {
+    this.setItem(this.ACTIVECATEGORY(), { major, minor });
   }
   getActiveCategory() {
     const active = this.getItem(this.ACTIVECATEGORY());
@@ -65,6 +79,6 @@ class Storage {
   }
   getActiveCategoryData() {
     const active = this.getItem(this.ACTIVECATEGORY());
-    return this.CATEGORYDATA()[active];
+    return this.CATEGORYDATA()[active.major].minor[active.minor];
   }
 }

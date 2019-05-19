@@ -53,6 +53,15 @@
       }
     }
 
+    .major-category {
+      font-family: Arial;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-variant-caps: small-caps;
+      color: chocolate;
+      text-align: right;      
+    }
+
     .category {
       margin-bottom: 0.5rem;
     }
@@ -144,36 +153,43 @@
     buildCategories();
 
     function buildCategories() {
-      const { order, data: categories } = storage.getAllCategories();
+      const { order, data } = storage.getAllCategories();
       const categoriesElement = document.getElementById('categories');
 
       let html = '';
-      for (let category of order) {
-        const data = categories[category.key];
+      for (let major in order) {
+        if (order.hasOwnProperty(major)) {
+          html += `<div class="major-category">${ data[major].name }</div>\n`;
 
-        html += `<div class="category btn default effect-jelena">\n`;
-        html += `  <div class="display" onclick="selectCategory('${ category.key }')">\n`;
-        html += `    <div class="name">${ data.name }</div>\n`;
-        let countText = '';
-        const count = (typeof data.questions !== 'number') ? data.questions.length : data.questions;
-        if (count === 0) {
-          countText = '(NO QUESTIONS)';
-        } else if (count === 1) {
-          countText = '1 QUESTION';
-        } else {
-          countText = count + ' QUESTIONS';
+          for (let minor of order[major]) {
+            const minorData = data[major].minor[minor.key];
+
+            html += `<div class="category btn default effect-jelena">\n`;
+            html += `  <div class="display" onclick="selectCategory('${ major }', '${ minor.key }')">\n`;
+            html += `    <div class="name">${ minorData.name }</div>\n`;
+            let countText = '';
+            const count = minorData.questions;
+            if (count === 0) {
+              countText = '(NO QUESTIONS)';
+            } else if (count === 1) {
+              countText = '1 QUESTION';
+            } else {
+              countText = count + ' QUESTIONS';
+            }
+
+            html += `    <div class="statistics">${ countText }</div>\n`;
+            html += `  </div>\n`;
+            html += `</div>\n`;
+          }
+
         }
-
-        html += `    <div class="statistics">${ countText }</div>\n`;
-        html += `  </div>\n`;
-        html += `</div>\n`;
       }
       
       categoriesElement.innerHTML = html;
     }
 
-    function selectCategory(categoryName) {
-      storage.setActiveCategory(categoryName);
+    function selectCategory(major, minor) {
+      storage.setActiveCategory(major, minor);
       window.location.href = 'qa.html';
     }
 
