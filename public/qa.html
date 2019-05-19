@@ -73,7 +73,7 @@
     }
   </style>
 
-
+  <script src="jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <header>
@@ -87,31 +87,21 @@
     </a>
     <div>Interview QA</div><div id="category"></div>
   </header>
+  <div id="content"></div>
 
   <script src="storage.js"></script>
   <script type="module">
-    const storage = new Storage();
-    const category = storage.getActiveCategory();
-    const categoryData = storage.getActiveCategoryData();
+    $(document).ready(() => {
+      const storage = new Storage();
+      const category = storage.getActiveCategory();
+      const categoryData = storage.getActiveCategoryData();
 
-    const title = document.getElementById('category');
-    title.innerText = categoryData.name;
+      const title = document.getElementById('category');
+      title.innerText = categoryData.name;
 
-    const templateLocation = `/templates/${ category.major }-${ category.minor }.html`;
-    fetch(templateLocation)
-      .then(function(response) {
-          return response.text()
-      })
-      .then(function(html) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, "text/html");
-
-        const content = doc.querySelector('.import-content');
-        document.body.appendChild(content.cloneNode(true));
-      })
-      .catch(function(err) {  
-          console.log('Failed to fetch page: ', err);  
-      });
+      const templateLocation = `/templates/${ category.major }-${ category.minor }.html`;
+      $('#content').load(templateLocation);
+    });
   </script>  
 </body>
 </html>

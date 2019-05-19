@@ -1,7 +1,7 @@
 // In your service worker
 importScripts('cache.adderall.js');
 
-const cachename = 'v4';
+const cachename = 'v9';
 
 const STATIC_ASSETS = [
   '/',
@@ -9,6 +9,8 @@ const STATIC_ASSETS = [
   'cache.adderall.js',
   'cache.adderall.js.map',
   'favicon.ico',
+  'jquery.3.4.1.min.js',
+  'jquery.3.4.1.min.map',
   'manifest.json',
 
   'images/icons/icon-72x72.png',
