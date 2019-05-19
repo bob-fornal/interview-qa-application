@@ -15,6 +15,13 @@
       margin-top: 4rem;
       padding: 1rem;
     }
+    .import-content:not(.active) {
+      display: none;
+    }
+    .import-content.active {
+      display: block;
+    }
+
     details:not(:first-of-type) {
       margin-top: 1rem;
     }
@@ -72,8 +79,6 @@
       font-weight: bold;
     }
   </style>
-
-  <script src="jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <header>
@@ -87,21 +92,386 @@
     </a>
     <div>Interview QA</div><div id="category"></div>
   </header>
-  <div id="content"></div>
+  
+  <div id="content">
+
+    <div id="frontend-angular" class="import-content">
+      <details class="easy">
+        <summary>
+          What is Angular Material?
+        </summary>
+        <div class="answer">
+          It is a UI component library. Angular Material helps in creating attractive, consistent, and fully functional web pages as well as web applications. It does so while following modern web design principles, including browser portability and graceful degradation.
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          What is ngOnInit()? How is it defined?
+        </summary>
+        <div class="answer">
+          ngOnInit () is a lifecycle hook that is called after Angular has finished initializing all data-bound properties of a directive. It is defined as:<br />
+          <br />
+          Interface OnInit {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;ngOnInit(): void;<br />
+          }
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          Why prioritize TypeScript over JavaScript in Angular?
+        </summary>
+        <div class="answer">
+          TypeScript is developed by Microsoft and it is a superset of JavaScript. The issue with JS is that it isn’t a true OOP language. As the JS code doesn’t follow the Prototype Pattern, the bigger the size of the code the messier it gets. Hence, it leads to difficulties in maintainability as well as reusability. To offset this, TypeScript follows a strict OOP approach.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          Define the ng-content Directive?
+        </summary>
+        <div class="answer">
+          Conventional HTML elements have some content between the tags.<br />
+          <br />
+          Consider an example where there is custom text between angular tags.<br />
+          <br />
+          However, doing so won’t work the way it worked for HTML elements. In order to make it work just like the HTML example mentioned above, we need to use the ng-content Directive.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          What is AOT (Ahead-Of-Time) Compilation?
+        </summary>
+        <div class="answer">
+          Each Angular app gets compiled internally. The Angular compiler takes in the JS code, compiles it and then produces some JS code. This happens only once per occasion per user. It is known as AOT (Ahead-Of-Time) compilation.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          Differentiate between Angular and AngularJS.
+        </summary>
+        <div class="answer">
+          <ul>
+            <li><span class='bold'>Language</span>: JavaScript / TypeScript</li>
+            <li><span class='bold'>Expression Syntax</span>: ng-directives / (events) and [properties]</li>
+            <li><span class='bold'>Dependency Injection</span>: No / Yes</li>
+            <li><span class='bold'>Binding</span>: Two-Way by default / One-Way by default</li>
+          </ul>
+        </div>
+      </details>
+    
+      <details class="hard">
+        <summary>
+          How do Observables differ from Promises?
+        </summary>
+        <div class="answer">
+          As soon as a promise is made, the execution takes place.<br />
+          <br />
+          However, this is not the case with observables because they are lazy. This means that nothing happens until a subscription is made.<br />
+          <br />
+          While promises handle a single event, observable is a stream that allows passing of more than one event. A callback is made for each event in an observable.
+        </div>
+      </details>
+    
+      <details class="hard">
+        <summary>
+          What is Data Binding? How many ways it can be done?
+        </summary>
+        <div class="answer">
+          In order to connect application data with the DOM (Data Object Model), data binding is used. It happens between the template (HTML) and component (TypeScript). There are 3 ways to achieve data binding:<br />
+          <ol>
+            <li><span class="bold">Event Binding</span> – Enables the application to respond to user input in the target environment.</li>
+            <li><span class="bold">Property Binding</span> – Enables interpolation of values computed from application data into the HTML.</li>
+            <li><span class="bold">Two-way Binding</span> – Changes made in the application state gets automatically reflected in the view and vice-versa. The ngModel directive is used for achieving this type of data binding.</li>
+          </ol>
+        </div>
+      </details>
+    
+      <details class="hard">
+        <summary>
+          What are the building blocks of Angular?
+        </summary>
+        <div class="answer">
+          In order to connect application data with the DOM (Data Object Model), data binding is used. It happens between the template (HTML) and component (TypeScript). There are 3 ways to achieve data binding:<br />
+          <ol>
+            <li><span class='bold'>Components</span> – A component controls one or more views.</li>
+            <li><span class='bold'>Data Binding</span> – The mechanism by which parts of a template coordinates with parts of a component is known as data binding. In order to let Angular know how to connect both sides (template and its component), the binding markup is added to the template HTML.</li>
+            <li><span class='bold'>Dependency Injection (DI)</span> – Angular makes use of DI to provide required dependencies to new components.</li>
+            <li><span class='bold'>Directives</span> – The templates used by Angular are dynamic in nature. Directives are responsible for instructing Angular about how to transform the DOM when rendering a template. Actually, components are directives with a template. Other types of directives are attribute and structural directives.</li>
+            <li><span class='bold'>Metadata</span> – In order to let Angular know how to process a class, metadata is attached to the class. For doing so decorators are used.</li>
+            <li><span class='bold'>Modules</span> – Also known as NgModules, a module is an organized block of code with a specific set of capabilities. It has a specific application domain or a workflow.</li>
+            <li><span class='bold'>Routing</span> – An Angular router is responsible for interpreting a browser URL as an instruction to navigate to a client-generated view. The router is bound to links on a page to tell Angular to navigate the application view when a user clicks on it.</li>
+            <li><span class='bold'>Services</span> – A very broad category, a service can be anything ranging from a value and function to a feature that is required by an Angular app. Technically, a service is a class with a well-defined purpose.</li>
+            <li><span class='bold'>Template</span> – Each component’s view is associated with its companion template. A template in Angular is a form of HTML tags that lets Angular know that how it is meant to render the component.</li>
+          </ol>
+        </div>
+      </details>
+    
+    </div>
+    
+    <div id="frontend-css" class="import-content">
+
+      <details class="easy">
+        <summary>
+          What does float do?
+        </summary>
+        <div class="answer">
+          Float pushes an element to the sides of a page with text wrapped around it. you can create entire page or a smaller area by using float. if size of a floated element changes, text around it will re-flow to accommodate the changes. You can have float left, right, none or inherit.
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          What are the properties related to box model?
+        </summary>
+        <div class="answer">
+          Technically, height, width, padding and border are part of box model and margin is related to it.<br />
+          <br />
+          <span class='bold'>Extra</span>: Everything in a web page is a box where you can control size, position, background, etc. Each box/ content area is optionally surrounded by padding, border and margin. When you set height and width of an element, you set content height and width.
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          What are the reasons to use preprocessor?
+        </summary>
+        <div class="answer">
+          CSS is written at a high level with some special syntax (declaring variable, nested syntax, mathematical operations, etc.) and that is compiled to css. Preprocessors help speed up develop, maintain, ensure best practices and also confirms concatenation, compression, etc.
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          What is specificity? How do you calculate specificity?
+        </summary>
+        <div class="answer">
+          Specificity is a process of determining which css rule will be applied to an element. It actually determines which rules will take precedence.<br />
+          <ol>
+            <li>Inline style,</li>
+            <li>ID,</li>
+            <li>Class value (or pseudo-class or attribute selector),</li>
+            <li>Universal Selector (*) has no specificity.</li>
+          </ol>>
+        </div>
+      </details>
+        
+      <details class="average">
+        <summary>
+          How can you fix, 'floated points don't add up to the height of a parent'?
+        </summary>
+        <div class="answer">
+          You can use <span class='bold'>clear: both</span> in an empty div &lt;div style="clear: both;"&gt;&lt;/div&gt;, you can use overflow hidden or scroll and you can float the parent as well.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          Which one would you prefer among px, em % or pt and why?
+        </summary>
+        <div class="answer">
+          It depends on what you are trying to do.<br />
+          <ul>
+            <li><span class='bold'>px</span> gives fine grained control and maintains alignment because 1 px or multiple of 1 px is guaranteed to look sharp. px is not cascade, this means if parent font-size is 20px and child 16px. child would be 16px.</li>
+            <li><span class='bold'>em</span> maintains relative size. you can have responsive fonts. em is the width of the letter 'm' in the selected typeface. However, this concept is tricky. 1em is equal to the current font-size of the element or the browser default. if u sent font-size to 16px then 1em = 16px. The common practice is to set default body font-size to 62.5% (equal to 10px). em is cascade.</li>
+            <li><span class='bold'>%</span> sets font-size relative to the font size of the body. Hence, you have to set font-size of the body to a reasonable size. this is easy to use and does cascade. for example, if parent font-size is 20px and child font-size is 50%. child would be 10px.</li>
+            <li><span class='bold'>pt</span>(points) are traditionally used in print. 1pt = 1/72 inch and it is fixed-size unit.</li>
+          </ul>
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          How do absolute, relative, fixed and static position differ?
+        </summary>
+        <div class="answer">
+          <ul>
+            <li><span class='bold'>absolute</span> place an element exactly where you want to place it. absolute position is actually set relative to the element's parent. if no parent available then relatively place to the page itself.</li>
+            <li><span class='bold'>relative</span> is position an element relative to itself (from where the element would be placed, if u don't apply relative positioning). for example, if u set position relative to an element and set top: 10px, it will move 10px down from where it would be normally.</li>
+            <li><span class='bold'>fixed</span> element is positioned relative to viewport or the browser window itself. viewport doesn't changed if u scroll and hence fixed element will stay right in the same position.</li>
+            <li><span class='bold'>static</span> element will be positioned based on the normal flow of the document. usually, u will use position static to remove other position might be applied to an element.</li>
+          </ul>
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          What are the differences between visibility hidden and display none?
+        </summary>
+        <div class="answer">
+          <span class='bold'>display: none</span> removes the element from the normal layout flow and allow other elements to fill in. <span class='bold'>visibility: hidden</span> tag is rendered, it takes space in the normal flow but doesn't show it.<br />
+          <br />>
+          If you want to say it smartly, <span class='bold'>display: none</span> causes DOM reflow, where <span class='bold'>visibility: hidden</span> does not.
+        </div>
+      </details>
+      
+    </div>
+
+    <div id="frontend-javascript" class="import-content">
+
+      <details class="easy">
+        <summary>
+          What are the differences between <span class='bold'>null</span> and <span class='bold'>undefined</span>?
+        </summary>
+        <div class="answer">
+          <span class='bold'>undefined</span> means value of the variable is not defined. JavaScript has a global variable <span class='bold'>undefined</span> whose value is "undefined" and <span class='bold'>typeof undefined</span> is also "undefined". Remember, <span class='bold'>undefined</span> is not a constant or a keyword. <span class='bold'>undefined</span> is a type with exactly one value: <span class='bold'>undefined</span>. Assigning a new value to it does not change the value of the type <span class='bold'>undefined</span>.<br />
+          <br />
+          <span class='bold'>null</span> means empty or non-existent value which is used by programmers to indicate "no value". <span class='bold'>null</span> is a primitive value and you can assign <span class='bold'>null</span> to any variable. <span class='bold'>null</span> is not an object, it is a primitive value. For example, you cannot add properties to it. Sometimes people wrongly assume that it is an object, because <span class='bold'>typeof null</span> returns "object".
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          What are the differences between == and ===?
+        </summary>
+        <div class="answer">
+          Simply, <span class="bold">==</span> will not check types and <span class="bold">===</span> will check whether both sides are of same type.<br />
+          <br />
+          So, <span class="bold">==</span> is tolerant. But under the hood it converts to its convenient type to have both in same type and then do the comparison.<br />
+          <br />
+          <span class="bold">===</span> compares the types and values. Hence, if both sides are not same type, answer is always false. For example, if you are comparing two strings, they must have identical character sets. For other primitives (number, boolean) must share the same value.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          What is this in JavaScript?
+        </summary>
+        <div class="answer">
+          At the time of execution of every function, JavaScript engine sets a property to the function called this which refer to the current execution context. this is always refer to an object and depends on how function is called. There are 7 different cases where the value of this varies.<br />
+          <ol>
+            <li>In the global context or inside a function this refers to the window object.</li>
+            <li>Inside IIFE (immediate invoking function) if you use "use strict", value of this is undefined. To pass access window inside IIFE with "use strict", you have to pass this.</li>
+            <li>While executing a function in the context of an object, the object becomes the value of this.</li>
+            <li>Inside a setTimeout function, the value of this is the window object.</li>
+            <li>If you use a constructor (by using new keyword) to create an object, the value of this will refer to the newly created object.</li>
+            <li>You can set the value of this to any arbitrary object by passing the object as the first parameter of bind, call or apply</li>
+            <li>For DOM event handler, value of this would be the element that fired the event.</li>
+          </ol>
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          Does JavaScript pass parameter by value or by reference?
+        </summary>
+        <div class="answer">
+          Primitive type (string, number, etc.) are passed by value and objects are passed by reference. If you change a property of the passed object, the change will be affected. However, you assign a new object to the passed object, the changes will not be reflected.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          Is there any difference between window and document?
+        </summary>
+        <div class="answer">
+          Yes. JavaScript has a global object and everything runs under it.<br />
+          <br />
+          <span class="bold">window</span> is that global object that holds global variables, global functions, location, history everything is under it. Also: setTimeout, ajax call (XMLHttpRequest), console or localStorage are part of window.<br />
+          <br />
+          <span class="bold">document</span> is also under window. <span class="bold">document</span> is a property of the window object. document represents the DOM and DOM is the object oriented representation of the html markup you have written. All the nodes are part of document. Hence you can use getElementById or addEventListener on document. These methods are not present in the window object.
+        </div>
+      </details>  
+    
+    </div>
+
+    <div id="programming-general" class="import-content">
+
+      <details class="easy">
+        <summary>
+          What is SPA (Single Page Application)? Contrast SPA technology with traditional web technology?
+        </summary>
+        <div class="answer">
+          In the SPA technology, only a single page, which is index.HTML, is maintained although the URL keeps on changing. Unlike the traditional web technology, SPA technology is faster and easier to develop as well.<br />
+          <br />
+          In the conventional web technology, as soon as a client requests a webpage, the server sends the resource. However, when again the client requests for another page, the server responds again with sending the requested resource. The problem with this technology is that it requires a lot of time.
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          What is the process called by which TypeScript code is converted into JavaScript code?
+        </summary>
+        <div class="answer">
+          It is called Transpiling. Even though TypeScript is used for writing code in Angular applications, it gets internally transpiled into equivalent JavaScript.
+        </div>
+      </details>
+    
+      <details class="easy">
+        <summary>
+          What is REST?
+        </summary>
+        <div class="answer">
+          REST stands for <span class='bold'>RE</span>presentational <span class='bold'>S</span>tate <span class='bold'>T</span>ransfer. REST is an API (Application Programming Interface) style that works on the HTTP request. In this, the requested URL pinpoints the data that needs to be processed. Further ahead, an HTTP method then identifies the specific operation that needs to be performed on that requested data. Thus, the APIs which follows this approach are known as RESTful APIs.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          What is asynchronous programming and why is it important in JavaScript?
+        </summary>
+        <div class="answer">
+          Synchronous programming means that, barring conditionals and function calls, code is executed sequentially from top-to-bottom, blocking on long-running tasks such as network requests and disk I/O.<br />
+          <br />
+          Asynchronous programming means that the engine runs in an event loop. When a blocking operation is needed, the request is started, and the code keeps running without blocking for the result. When the response is ready, an interrupt is fired, which causes an event handler to be run, where the control flow continues. In this way, a single program thread can handle many concurrent operations.<br />
+          <br />
+          User interfaces are asynchronous by nature, and spend most of their time waiting for user input to interrupt the event loop and trigger event handlers.<br />
+          <br />
+          Node is asynchronous by default, meaning that the server works in much the same way, waiting in a loop for a network request, and accepting more incoming requests while the first one is being handled.<br />
+          <br />
+          This is important in JavaScript, because it is a very natural fit for user interface code, and very beneficial to performance on the server.
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          What is functional programming?
+        </summary>
+        <div class="answer">
+          Functional programming produces programs by composing mathematical functions and avoids shared state & mutable data.<br />
+          <br />
+          Functional programming is an essential concept in JavaScript (one of the two pillars of JavaScript). Several common functional utilities were added to JavaScript in ES5.<br />
+          <ul>
+            <li>Pure functions / function purity.</li>
+            <li>Avoid side-effects.</li>
+            <li>Simple function composition.</li>
+          </ul>
+        </div>
+      </details>
+    
+      <details class="average">
+        <summary>
+          What are two-way data binding and one-way data flow, and how are they different?
+        </summary>
+        <div class="answer">
+          Two way data binding means that UI fields are bound to model data dynamically such that when a UI field changes, the model data changes with it and vice-versa.<br />
+          <br />
+          One way data flow means that the model is the single source of truth. Changes in the UI trigger messages that signal user intent to the model (or “store” in React). Only the model has the access to change the app’s state. The effect is that data always flows in a single direction, which makes it easier to understand.<br />
+          <br />
+          One way data flows are deterministic, whereas two-way binding can cause side-effects which are harder to follow and understand.<br />
+          <br />
+          React is the new canonical example of one-way data flow. AngularJS is a popular framework which uses two-way binding.
+        </div>
+      </details>
+    
+    </div>
+
+  </div>
 
   <script src="storage.js"></script>
   <script type="module">
-    $(document).ready(() => {
-      const storage = new Storage();
-      const category = storage.getActiveCategory();
-      const categoryData = storage.getActiveCategoryData();
+    const storage = new Storage();
+    const category = storage.getActiveCategory();
+    const categoryData = storage.getActiveCategoryData();
 
-      const title = document.getElementById('category');
-      title.innerText = categoryData.name;
+    const title = document.getElementById('category');
+    title.innerText = categoryData.name;
 
-      const templateLocation = `/templates/${ category.major }-${ category.minor }.html`;
-      $('#content').load(templateLocation);
-    });
+    const templateId = `${ category.major }-${ category.minor }`;
+    const template = document.getElementById(templateId);
+    template.className += ' active';
   </script>  
 </body>
 </html>
