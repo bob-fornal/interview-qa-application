@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "us-license-plate-game",
     "public": "public",
     "ignore": [
       "firebase.json",
