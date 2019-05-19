@@ -1,7 +1,7 @@
 // In your service worker
 importScripts('cache.adderall.js');
 
-const cachename = 'v13';
+const cachename = 'v14';
 
 const STATIC_ASSETS = [
   '/',
@@ -20,6 +20,7 @@ const STATIC_ASSETS = [
 const MUTABLE_ASSETS = [
   'templates/frontend-angular.html',
   'templates/frontend-css.html',
+  'templates/frontend-html.html',
   'templates/frontend-javascript.html',
   'templates/programming-general.html',
   'index.html',

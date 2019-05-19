@@ -8,14 +8,15 @@ class Storage {
         name: "Front-End",
         minor: {
           angular: { name: "Angular", questions: 9 },
-          css: { name: "CSS", questions: 8 },
-          javascript: { name: "JavaScript", questions: 5 }    
+          css: { name: "CSS", questions: 11 },
+          html: { name: "HTML", questions: 4 },
+          javascript: { name: "JavaScript", questions: 6 }    
         }
       },
       programming: {
         name: "Programming",
         minor: {
-          general: { name: "General", questions: 6 }
+          general: { name: "General", questions: 5 }
         }
       }
     };

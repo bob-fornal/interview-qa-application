@@ -1,0 +1,56 @@
+<div id="frontend-html" class="import-content">
+
+  <details class="easy" question="1">
+    <summary>
+      What is doctype and why is it necessary?
+    </summary>
+    <div class="answer">
+      <span class="bold">DOCTYPE</span> is an abbreviation for DOCument TYPE. A DOCTYPE is always associated to a DTD - for Document Type Definition.<br />
+      <br />
+      A DTD defines how documents of a certain type should be structured (i.e. a button can contain a span but not a div), whereas a DOCTYPE declares what DTD a document supposedly respects (i.e. this document respects the HTML DTD).<br />
+      <br />
+      For webpages, the DOCTYPE declaration is required. It is used to tell user agents what version of the HTML specifications your document respects. Once a user agent has recognized a correct DOCTYPE, it will trigger the no-quirks mode matching this DOCTYPE for reading the document. If a user agent doesn't recognize a correct DOCTYPE, it will trigger the quirks mode.<br />
+      <br />
+      The DOCTYPE declaration for the HTML5 standards is &lt;!DOCTYPE html&gt;.
+    </div>
+  </details>
+
+  <details class="easy" question="2">
+    <summary>
+      What is the difference between span and div?
+    </summary>
+    <div class="answer">
+      <span class="bold">div</span> is a block element and <span class="bold">span</span> is inline element.
+    </div>
+  </details>
+
+  <details class="average" question="3">
+    <summary>
+      Why is it generally a good idea to position CSS link between head tags and script just before the body tags?
+    </summary>
+    <div class="answer">
+      Putting link tags in the head is part of proper specification in building an optimized website. When a page first loads, HTML and CSS are being parsed simultaneously; HTML creates the DOM (Document Object Model) and CSS creates the CSSOM (CSS Object Model). Both are needed to create the visuals in a website, allowing for a quick "first meaningful paint" timing.<br />
+      <br />
+      Script tags block HTML parsing while they are being downloaded and executed. Placing the scripts at the bottom will allow the HTML to be parsed and displayed to the user first.
+    </div>
+  </details>
+
+  <details class="average" question="4">
+    <summary>
+      What is progressive rendering?
+    </summary>
+    <div class="answer">
+        Progressive rendering is the name given to techniques used to improve the performance of a webpage (in particular, improve perceived load time) to render content for display as quickly as possible.<br />
+        <br />
+        It used to be much more prevalent in the days before broadband internet but it is still used in modern development as mobile data connections are becoming increasingly popular (and unreliable)!<br />
+        <br />
+        Examples of such techniques:<br />
+        <ul>
+          <li><span class="bold">Lazy loading of images</span> - Images on the page are not loaded all at once. JavaScript will be used to load an image when the user scrolls into the part of the page that displays the image.</li>
+          <li><span class="bold">Prioritizing visible content</span> (or above-the-fold rendering) - Include only the minimum CSS/content/scripts necessary for the amount of page that would be rendered in the users browser first to display as quickly as possible, you can then use deferred scripts or listen for the DOMContentLoaded/load event to load in other resources and content.</li>
+          <li><span class="bold">Async HTML fragments</span> - Flushing parts of the HTML to the browser as the page is constructed on the back end. </li>
+        </ul>
+    </div>
+  </details>
+
+</div>
