@@ -24,9 +24,72 @@
     </div>
   </details>
 
-  <details class="average" question="3">
+  <details class="easy" question="3">
     <summary>
-      What is this in JavaScript?
+      Explain "hoisting"
+    </summary>
+    <div class="answer">
+      Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the var keyword will have their declaration "moved" up to the top of the current scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.<br />
+      <br />
+      Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope.        
+    </div>
+  </details>
+
+  <details class="easy" question="4">
+    <summary>
+      What are JavaScript Data Types?
+    </summary>
+    <div class="answer">
+      The following are the JavaScript Data types:<br />
+      <ul>
+        <li>Number</li>
+        <li>String</li>
+        <li>Boolean</li>
+        <li>Object</li>
+        <li>Undefined</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="easy" question="5">
+    <summary>
+      What are the break and continue statements?
+    </summary>
+    <div class="answer">
+      Break statement exits from the current loop. Continue statement continues with the next iteration of the loop.
+    </div>
+  </details>
+  
+  <details class="average" question="6">
+    <summary>
+      What is 'use strict'? What are the advantages and disadvantages to using it?
+    </summary>
+    <div class="answer">
+        'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.<br />
+        <br />
+        <span class="bold">Advantages</span>
+        <ol>
+          <li>Makes it impossible to accidentally create global variables.</li>
+          <li>Makes assignments which would otherwise silently fail to throw an exception.</li>
+          <li>Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).</li>
+          <li>Requires that function parameter names be unique.</li>
+          <li>this is undefined in the global context.</li>
+          <li>It catches some common coding bloopers, throwing exceptions.</li>
+          <li>It disables features that are confusing or poorly thought out.</li>
+        </ol>
+        <span class="bold">Disadvantages</span>
+        <ul>
+          <li>Many missing features that some developers might be used to.</li>
+          <li>No more access to function.caller and function.arguments.</li>
+          <li>Concatenation of scripts written in different strict modes might cause issues.</li>
+        </ul>
+        Overall, the benefits outweigh the disadvantages, and the features that strict mode blocks are rarely used.
+    </div>
+  </details>
+  
+  <details class="average" question="7">
+    <summary>
+      What is "this" in JavaScript?
     </summary>
     <div class="answer">
       At the time of execution of every function, JavaScript engine sets a property to the function called this which refer to the current execution context. this is always refer to an object and depends on how function is called. There are 7 different cases where the value of this varies.<br />
@@ -42,7 +105,7 @@
     </div>
   </details>
 
-  <details class="average" question="4">
+  <details class="average" question="8">
     <summary>
       Does JavaScript pass parameter by value or by reference?
     </summary>
@@ -51,7 +114,7 @@
     </div>
   </details>
 
-  <details class="average" question="5">
+  <details class="average" question="9">
     <summary>
       Is there any difference between window and document?
     </summary>
@@ -64,7 +127,7 @@
     </div>
   </details>  
 
-  <details class="average" question="6">
+  <details class="average" question="10">
     <summary>
       What is asynchronous programming and why is it important in JavaScript?
     </summary>
@@ -81,4 +144,55 @@
     </div>
   </details>
 
+  <details class="average" question="11">
+    <summary>
+      Explain Ajax in as much detail as possible.
+    </summary>
+    <div class="answer">
+      Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute use JSON instead of XML, due to the advantages of JSON being native to JavaScript.
+    </div>
+  </details>
+
+  <details class="average" question="12">
+    <summary>
+      What are the advantages and disadvantages of using Ajax?
+    </summary>
+    <div class="answer">
+      <span class="bold">Advantages</span>
+      <ul>
+        <li>Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.</li>
+        <li>Reduce connections to the server since scripts and stylesheets only have to be requested once.</li>
+        <li>State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.</li>
+        <li>Basically most of the advantages of an SPA.</li>
+      </ul>
+      <span class="bold">Disadvantages</span>
+      <ul>
+        <li>Dynamic webpages are harder to bookmark.</li>
+        <li>Does not work if JavaScript has been disabled in the browser.</li>
+        <li>Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.</li>
+        <li>Basically most of the disadvantages of an SPA.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="average" question="13">
+    <summary>
+      Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
+    </summary>
+    <div class="answer">
+      One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the function keyword. The 'this' within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the 'this' is determined by the object calling it.
+    </div>
+  </details>
+
+  <details class="average" question="14">
+    <summary>
+      What are IIFEs?
+    </summary>
+    <div class="answer">
+      It’s an Immediately-Invoked Function Expression, or IIFE for short. It executes immediately after it’s created.<br />
+      <br />
+      This pattern is often used when trying to avoid polluting the global namespace, because all the variables used inside the IIFE (like in any other normal function) are not visible outside its scope.        
+    </div>
+  </details>
+  
 </div>

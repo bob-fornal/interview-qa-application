@@ -5,18 +5,18 @@
       What are the advantages/disadvantages of using CSS preprocessors?
     </summary>
     <div class="answer">
-        Advantages:<br />
-        <ul>
-          <li>CSS is made more maintainable.</li>
-          <li>Easy to write nested selectors.</li>
-          <li>Variables for consistent theming. Can share theme files across different projects.</li>
-          <li>Mixins to generate repeated CSS.</li>
-          <li>Splitting your code into multiple files. CSS files can be split up too but doing so will require an HTTP request to download each CSS file.</li>
-        </ul>
-        Disadvantages:<br />
-        <ul>
-          <li>Requires tools for preprocessing. Re-compilation time can be slow.</li>
-        </ul>        
+      Advantages:<br />
+      <ul>
+        <li>CSS is made more maintainable.</li>
+        <li>Easy to write nested selectors.</li>
+        <li>Variables for consistent theming. Can share theme files across different projects.</li>
+        <li>Mixins to generate repeated CSS.</li>
+        <li>Splitting your code into multiple files. CSS files can be split up too but doing so will require an HTTP request to download each CSS file.</li>
+      </ul>
+      Disadvantages:<br />
+      <ul>
+        <li>Requires tools for preprocessing. Re-compilation time can be slow.</li>
+      </ul>        
     </div>
   </details>
     
@@ -60,11 +60,49 @@
         <li>ID,</li>
         <li>Class value (or pseudo-class or attribute selector),</li>
         <li>Universal Selector (*) has no specificity.</li>
-      </ol>>
+      </ol>
     </div>
   </details>
-    
-  <details class="average" question="6">
+
+  <details class="easy" question="6">
+    <summary>
+      What does * { box-sizing: border-box; } do? What are its advantages?
+    </summary>
+    <div class="answer">
+      By default, elements have box-sizing: content-box applied, and only the content size is being accounted for.<br />
+      <br />
+      box-sizing: border-box changes how the width and height of elements are being calculated, border and padding are also being included in the calculation.<br />
+      <br />
+      Taking into account paddings and borders as part of our box model resonates better with how designers actually imagine content in grids.<br />
+    </div>
+  </details>
+
+  <details class="easy" question="7">
+    <summary>
+      What is the CSS display property and can you give a few examples of its use?
+    </summary>
+    <div class="answer">
+      none, block, inline, inline-block, table, table-row, table-cell, list-item.
+    </div>
+  </details>
+
+  <details class="easy" question="8">
+    <summary>
+      What's the difference between a relative, fixed, absolute and statically positioned element?
+    </summary>
+    <div class="answer">
+      A positioned element is an element whose computed position property is either relative, absolute, fixed or sticky.<br />
+      <ul>
+        <li><span class="bold">static</span> - The default position; the element will flow into the page as it normally would. The top, right, bottom, left and z-index properties do not apply.</li>
+        <li><span class="bold">relative</span> - The element's position is adjusted relative to itself, without changing layout (and thus leaving a gap for the element where it would have been had it not been positioned).</li>
+        <li><span class="bold">absolute</span> - The element is removed from the flow of the page and positioned at a specified position relative to its closest positioned ancestor if any, or otherwise relative to the initial containing block. Absolutely positioned boxes can have margins, and they do not collapse with any other margins. These elements do not affect the position of other elements.</li>
+        <li><span class="bold">fixed</span> - The element is removed from the flow of the page and positioned at a specified position relative to the viewport and doesn't move when scrolled.</li>
+        <li><span class="bold">sticky</span> - Sticky positioning is a hybrid of relative and fixed positioning. The element is treated as relative positioned until it crosses a specified threshold, at which point it is treated as fixed positioned.        </li>
+      </ul>
+    </div>
+  </details>
+  
+  <details class="average" question="9">
     <summary>
       How can you fix, 'floated points don't add up to the height of a parent'?
     </summary>
@@ -73,7 +111,7 @@
     </div>
   </details>
 
-  <details class="average" question="7">
+  <details class="average" question="10">
     <summary>
       Which one would you prefer among px, em % or pt and why?
     </summary>
@@ -88,7 +126,7 @@
     </div>
   </details>
 
-  <details class="average" question="8">
+  <details class="average" question="11">
     <summary>
       How do absolute, relative, fixed and static position differ?
     </summary>
@@ -102,18 +140,18 @@
     </div>
   </details>
 
-  <details class="average" question="9">
+  <details class="average" question="12">
     <summary>
       What are the differences between visibility hidden and display none?
     </summary>
     <div class="answer">
       <span class='bold'>display: none</span> removes the element from the normal layout flow and allow other elements to fill in. <span class='bold'>visibility: hidden</span> tag is rendered, it takes space in the normal flow but doesn't show it.<br />
-      <br />>
+      <br />
       If you want to say it smartly, <span class='bold'>display: none</span> causes DOM reflow, where <span class='bold'>visibility: hidden</span> does not.
     </div>
   </details>
   
-  <details class="average" question="10">
+  <details class="average" question="13">
     <summary>
       What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
     </summary>
@@ -126,18 +164,29 @@
     </div>
   </details>
   
-  <details class="average" question="11">
+  <details class="average" question="14">
     <summary>
       Describe z-index and how stacking context is formed.
     </summary>
     <div class="answer">
-        The z-index property in CSS controls the vertical stacking order of elements that overlap. z-index only affects elements that have a position value which is not static.<br />
-        <br />
-        Without any z-index value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.<br />
-        <br />
-        A stacking context is an element that contains a set of layers. Within a local stacking context, the z-index values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it.<br />
-        <br />
-        Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context.<br />
+      The z-index property in CSS controls the vertical stacking order of elements that overlap. z-index only affects elements that have a position value which is not static.<br />
+      <br />
+      Without any z-index value, elements stack in the order that they appear in the DOM (the lowest one down at the same hierarchy level appears on top). Elements with non-static positioning (and their children) will always appear on top of elements with default static positioning, regardless of HTML hierarchy.<br />
+      <br />
+      A stacking context is an element that contains a set of layers. Within a local stacking context, the z-index values of its children are set relative to that element rather than to the document root. Layers outside of that context — i.e. sibling elements of a local stacking context — can't sit between layers within it.<br />
+      <br />
+      Each stacking context is self-contained - after the element's contents are stacked, the whole element is considered in the stacking order of the parent stacking context.<br />
+    </div>
+  </details>
+
+  <details class="average" question="15">
+    <summary>
+      What are some of the "gotchas" for writing efficient CSS?
+    </summary>
+    <div class="answer">
+      Firstly, understand that browsers match selectors from rightmost (key selector) to left. Browsers filter out elements in the DOM according to the key selector and traverse up its parent elements to determine matches. The shorter the length of the selector chain, the faster the browser can determine if that element matches the selector. Hence avoid key selectors that are tag and universal selectors. They match a large number of elements and browsers will have to do more work in determining if the parents do match.<br />
+      <br />
+      Be aware of which CSS properties trigger reflow, repaint, and compositing. Avoid writing styles that change the layout (trigger reflow) where possible.
     </div>
   </details>
   
