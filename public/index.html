@@ -157,6 +157,7 @@
       const categoriesElement = document.getElementById('categories');
 
       let html = '';
+      let total = 0;
       for (let major in order) {
         if (order.hasOwnProperty(major)) {
           html += `<div class="major-category">${ data[major].name }</div>\n`;
@@ -176,6 +177,7 @@
             } else {
               countText = count + ' QUESTIONS';
             }
+            total += count;
 
             html += `    <div class="statistics">${ countText }</div>\n`;
             html += `  </div>\n`;
@@ -184,7 +186,8 @@
 
         }
       }
-      
+
+      html += `<div class="totals">Total Questions: ${ total }</div>\n`;
       categoriesElement.innerHTML = html;
     }
 
