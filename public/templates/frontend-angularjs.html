@@ -1,4 +1,4 @@
-<div id="frontend-css" class="import-content">
+<div id="frontend-angularjs" class="import-content">
 
   <details class="easy" question="1">
     <summary>
@@ -72,7 +72,16 @@
     </div>
   </details>
 
-  <details class="average" question="9">
+  <details class="easy" question="9">
+    <summary>
+      What is "track by" and how does it work?
+    </summary>
+    <div class="answer">
+      The track by is used with ng-repeat and describes to AngularJS how it tracks the association between the DOM and the Model. It improves the rendering performance.
+    </div>
+  </details>
+
+  <details class="average" question="10">
     <summary>
       Which components can be injected as a dependency in AngularJS?
     </summary>
@@ -88,7 +97,83 @@
     </div>
   </details>
 
-  <details class="hard" question="10">
+  <details class="average" question="11">
+    <summary>
+      What is an injector?
+    </summary>
+    <div class="answer">
+      An injector is a service locator.  It is used to retrieve object instances as defined by provider, instantiate types, invoke methods and load modules.  There is a single injector per Angular application, it helps to look up an object instance by its name.
+    </div>
+  </details>
+
+  <details class="average" question="12">
+    <summary>
+      What is the ng-include directive?
+    </summary>
+    <div class="answer">
+      HTML pages can be embedded within an HTML page using the ng-include directive.
+    </div>
+  </details>
+
+  <details class="average" question="13">
+    <summary>
+      How is data shared between controllers in AngularJS?
+    </summary>
+    <div class="answer">
+      Services are the easiest, fastest and cleaner way to share data between controllers in AngularJS.<br />
+      <br />
+      There are also other ways to share data between controllers, they are:<br />
+      <ul>
+        <li>Using Events</li>
+        <li>$parent, nextSibling, controllerAs</li>
+        <li>Using the $rootScope</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="average" question="14">
+    <summary>
+      Explain the AngularJS digest cycle.
+    </summary>
+    <div class="answer">
+      The AngularJS digest cycle is the process behind AngularJS data binding.  In each digest cycle, Angular compares the old and the new version of the scope model values. The digest cycle is triggered automatically. We can also use $apply() if we want to trigger the digest cycle manually.
+    </div>
+  </details>
+
+  <details class="average" question="15">
+    <summary>
+      What should be the maximum number of concurrent “watches”? How would you keep an eye on that number?
+    </summary>
+    <div class="answer">
+      To reduce memory consumption and improve performance, it is a good idea to limit the number of watches on a page to 2,000. A utility called ng-stats can help track the watch count and digest cycles.<br />
+      <br />
+      To achieve 60 frames-per-second, there is only about 16 milliseconds for code to execute. It is crucial that the scope digest cycles are as short as possible for the application to be responsive and smooth. Memory use and digest cycle performance are directly affected by the number of active watches.          
+    </div>
+  </details>
+
+  <details class="average" question="16">
+    <summary>
+      What is the difference between ng-show/ng-hide and ng-if directives?
+    </summary>
+    <div class="answer">
+      ng-show/ng-hide will always insert the DOM element, but will display/hide it based on the condition. ng-if will not insert the DOM element until the condition is not fulfilled.<br />
+      <br />
+      ng-if is better when we needed the DOM to be loaded conditionally, as it will help load page bit faster compared to ng-show/ng-hide.<br />
+      <br />
+      Keep in mind what the difference between these directives is when deciding which one to use.        
+    </div>
+  </details>
+
+  <details class="average" question="17">
+    <summary>
+      When should you use an attribute versus an element?
+    </summary>
+    <div class="answer">
+      Use an element when you are creating a component that is in control of the template. Use an attribute when you are decorating an existing element with new functionality.
+    </div>
+  </details>
+
+  <details class="hard" question="18">
     <summary>
       Which are the core directives of AngularJS?
     </summary>
@@ -99,6 +184,17 @@
         <li><span class="bold">ng-model</span> − This directive binds the values of AngularJS application data to HTML input controls.</li>
         <li><span class="bold">ng-bind</span> − This directive binds the AngularJS Application data to HTML tags.</li>
       </ul>
+    </div>
+  </details>
+  
+  <details class="hard" question="19">
+    <summary>
+      What is an interceptor? What are common uses of it?
+    </summary>
+    <div class="answer">
+      An interceptor is a middleware code where all the $http requests go through.<br />
+      <br />
+      The interceptor is a factory that are registered in $httpProvider. There are 2 types of requests that go through the interceptor, request and response (with requestError and responseError respectively). This piece of code is very useful for error handling, authentication or middleware in all the requests/responses.        
     </div>
   </details>
   

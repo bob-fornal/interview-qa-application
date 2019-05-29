@@ -4,20 +4,27 @@ class Storage {
   }
   CATEGORYDATA() {
     let categoryData = {
+      devops: {
+        name: "DevOps",
+        minor: {
+          git: { name: "Git", questions: 13 }
+        }
+      },
       frontend: {
         name: "Front-End",
         minor: {
           angular: { name: "Angular", questions: 9 },
-          angularjs: { name: "AngularJS", questions: 10 },
-          css: { name: "CSS", questions: 15 },
-          html: { name: "HTML", questions: 4 },
-          javascript: { name: "JavaScript", questions: 14 }    
+          angularjs: { name: "AngularJS", questions: 19 },
+          css: { name: "CSS", questions: 17 },
+          html: { name: "HTML", questions: 9 },
+          javascript: { name: "JavaScript", questions: 19 }    
         }
       },
       programming: {
         name: "Programming",
         minor: {
-          general: { name: "General", questions: 12 }
+          general: { name: "General", questions: 18 },
+          testing: { name: "Testing", questions: 7 }
         }
       }
     };
