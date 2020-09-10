@@ -227,17 +227,17 @@ header {
   width: 70%;
 }
 .item .description.image a.svg:after {
-   content: ""; 
+  content: ""; 
 
-   position: absolute;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left:0;
- }
- .item .description.image object {
-   width: 100%;
- }
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+}
+.item .description.image object {
+  width: 100%;
+}
 
 /* Individual Effects */
 
