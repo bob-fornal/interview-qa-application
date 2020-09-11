@@ -1,7 +1,7 @@
 // In your service worker
 importScripts('cache.adderall.js');
 
-const cachename = 'v19';
+const cachename = 'v20';
 
 const STATIC_ASSETS = [
   '/',

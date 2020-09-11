@@ -1,37 +1,24 @@
 class Storage {
+  
+  constructor() {
+    this.categoryData = null;
+    this.orderData = null;
+  }
+
   ACTIVECATEGORY() {
     return 'ACTIVE-CATEGORY';
   }
-  CATEGORYDATA() {
-    let categoryData = {
-      devops: {
-        name: "DevOps",
-        minor: {
-          git: { name: "Git", questions: 13 }
-        }
-      },
-      frontend: {
-        name: "Front-End",
-        minor: {
-          angular: { name: "Angular", questions: 9 },
-          angularjs: { name: "AngularJS", questions: 19 },
-          css: { name: "CSS", questions: 17 },
-          html: { name: "HTML", questions: 9 },
-          javascript: { name: "JavaScript", questions: 19 }    
-        }
-      },
-      programming: {
-        name: "Programming",
-        minor: {
-          general: { name: "General", questions: 18 },
-          testing: { name: "Testing", questions: 7 }
-        }
-      }
-    };
-    return categoryData;
+  async CATEGORYDATA() {
+    if (this.categoryData !== null) return this.categoryData;
+
+    this.categoryData = await fetch('/templates/_category-data.json')
+      .then(response => response.json());
+    return this.categoryData;
   }
-  ORDERDATA() {
-    const outerData = this.CATEGORYDATA();
+  async ORDERDATA() {
+    if (this.orderData !== null) return this.orderData;
+
+    const outerData = await this.CATEGORYDATA();
     const data = {};
     for (let major in outerData) {
       if (outerData.hasOwnProperty(major)) {
@@ -43,7 +30,9 @@ class Storage {
         data[major] = categories.sort(this.sortCompareCategory.bind(this));
       }
     }
-    return data;
+
+    this.orderData = data;
+    return this.orderData;
   }
 
   sortCompareCategory(a, b) {
@@ -76,8 +65,10 @@ class Storage {
     return localStorage.removeItem(item);
   }
 
-  getAllCategories() {
-    return { order: this.ORDERDATA(), data: this.CATEGORYDATA() };
+  async getAllCategories() {
+    const categoryData = await this.CATEGORYDATA();
+    const orderData = await this.ORDERDATA();
+    return { order: orderData, data: categoryData };
   }
   setActiveCategory(major, minor) {
     this.setItem(this.ACTIVECATEGORY(), { major, minor });
@@ -86,8 +77,9 @@ class Storage {
     const active = this.getItem(this.ACTIVECATEGORY());
     return active;
   }
-  getActiveCategoryData() {
+  async getActiveCategoryData() {
+    const categoryData = await this.CATEGORYDATA();
     const active = this.getItem(this.ACTIVECATEGORY());
-    return this.CATEGORYDATA()[active.major].minor[active.minor];
+    return categoryData[active.major].minor[active.minor];
   }
 }

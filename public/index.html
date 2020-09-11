@@ -164,8 +164,8 @@
 
     buildCategories();
 
-    function buildCategories() {
-      const { order, data } = storage.getAllCategories();
+    async function buildCategories() {
+      const { order, data } = await storage.getAllCategories();
       const categoriesElement = document.getElementById('categories');
 
       let html = '';

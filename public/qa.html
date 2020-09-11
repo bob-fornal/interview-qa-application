@@ -89,28 +89,28 @@
   
   <script src="storage.js"></script>
   <script>
-    const storage = new Storage();
-    const category = storage.getActiveCategory();
-    const categoryData = storage.getActiveCategoryData();
+    async function init() {
+      const storage = new Storage();
+      const category = await storage.getActiveCategory();
+      const categoryData = await storage.getActiveCategoryData();
 
-    const title = document.getElementById('category');
-    title.innerText = categoryData.name;
+      const title = document.getElementById('category');
+      title.innerText = categoryData.name;
 
-    const templateLocation = `/templates/${ category.major }-${ category.minor }.html`;
-    fetch(templateLocation)
-      .then(function(response) {
-        return response.text()
-      })
-      .then(function(html) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(html, "text/html");
+      const templateLocation = `/templates/${ category.major }-${ category.minor }.html`;
+      fetch(templateLocation)
+        .then(response => response.text)
+        .then(html => {
+          var parser = new DOMParser();
+          var doc = parser.parseFromString(html, "text/html");
 
-        const content = doc.querySelector('.import-content');
-        document.body.appendChild(content.cloneNode(true));
-      })
-      .catch(function(err) {  
-          console.log('Failed to fetch page: ', err);  
-      });    
+          const content = doc.querySelector('.import-content');
+          document.body.appendChild(content.cloneNode(true));
+        })
+        .catch(function(err) {  
+            console.log('Failed to fetch page: ', err);  
+        });
+    }
   </script>
 </body>
 </html>
