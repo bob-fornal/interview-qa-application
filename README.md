@@ -15,9 +15,17 @@ Need the ability to:
 
 1. Moderate: Add, edit, and remove questions in a way that doesn't open up the database to everyone.
 2. Means to create a Profile for someone being interviewed.
-3. ID Questions in a way that the information can be passed on to another user easily.
+3. ID Questions in a wsay that the information can be passed on to another user easily.
 4. Desktop Version
-5. Look into using JS Markdown code rather than hardcoded HTML files.
+
+### Implementation Ideas
+
+> Look into using JS Markdown code rather than hardcoded HTML files.
+
+See ...
+
+* [Deploy Gatsby to Firebase Hosting with Github Actions](https://blog.bitsrc.io/deploy-gatsby-to-firebase-hosting-with-github-actions-f24e3b807ea3)
+* [Automate Firebase Hosting with Github Actions](https://codegregg.com/blog/firebaseHostingGithubActions/)
 
 ## Hosted at ...
 
